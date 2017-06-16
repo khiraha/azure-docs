@@ -295,6 +295,7 @@ The following tables are the Rule groups and rules that are available when using
 |942011|Rule 942011|
 |942012|Rule 942012|
 |942100|SQL Injection Attack Detected via libinjection|
+|942110|SQL Injection Attack:Common Injection Testing Detected|
 |942140|SQL Injection Attack = Common DB Names Detected|
 |942160|Detects blind sqli tests using sleep() or benchmark().|
 |942170|Detects SQL benchmark and sleep injection attempts including conditional queries|
@@ -331,6 +332,27 @@ The following tables are the Rule groups and rules that are available when using
 |943016|Rule 943016|
 |943017|Rule 943017|
 |943018|Rule 943018|
+
+### <a name="crs949"></a> <p x-ms-format-detection="none">REQUEST-949-BLOCKING-EVALUATION</p>
+
+|RuleId|Description|
+|---|---|
+|949100|Request Denied by IP Reputation Enforcement.|
+|949110|Inbound Anomaly Score Exceeded (Total Score: %{TX.ANOMALY_SCORE})|
+
+RuleId 949110 is a mandatory rule. You can't disable this rule.
+
+### <a name="crs980"></a> <p x-ms-format-detection="none">RESPONSE-980-CORRELATION</p>
+
+|RuleId|Description|
+|---|---|
+|980100|Correlated Successful Attack Identified: (Total Score: %{tx.anomaly_score}) Inbound Attack (%{tx.inbound_tx_msg} - Inbound Anomaly Score: %{TX.INBOUND_ANOMALY_SCORE}) + Outbound Data Leakage (%{tx.msg} - Outbound Anomaly Score: %{TX.OUTBOUND_ANOMALY_SCORE})|
+|980110|Correlated Attack Attempt Identified: (Total Score: %{tx.anomaly_score}) Inbound Attack (%{tx.inbound_tx_msg} Inbound Anomaly Score: %{TX.INBOUND_ANOMALY_SCORE}) + Outbound Application Error (%{tx.msg} - Outbound Anomaly Score: %{TX.OUTBOUND_ANOMALY_SCORE})|
+|980120|Inbound Anomaly Score (Total Inbound Score: %{TX.INBOUND_ANOMALY_SCORE}): %{tx.inbound_tx_msg}|
+|980130|Inbound Anomaly Score Exceeded (Total Inbound Score: %{TX.INBOUND_ANOMALY_SCORE} - SQLI=%{tx.sql_injection_score},XSS=%{tx.xss_score},RFI=%{tx.rfi_score},LFI=%{tx.lfi_score},RCE=%{tx.rce_score},PHPI=%{tx.php_injection_score},HTTP=%{tx.http_violation_score},SESS=%{tx.session_fixation_score}): %{tx.inbound_tx_msg}|
+|980140|Outbound Anomaly Score Exceeded (score %{TX.OUTBOUND_ANOMALY_SCORE}): %{tx.msg}|
+
+Some rules are mandatory rules. You can't disable these rules.  
 
 ##<a name="owasp229"></a> OWASP_2.2.9
 
