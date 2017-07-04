@@ -33,9 +33,9 @@ The following table provides a list of DSCP markings used by Skype for Business.
 | --- | --- | --- |
 | **Voice** |EF (46) |Skype / Lync voice |
 | **Interactive** |AF41 (34) |Video |
-| AF21 (18) |App sharing | |
+|| AF21 (18) |App sharing | 
 | **Default** |AF11 (10) |File transfer |
-| CS0 (0) |Anything else | |
+|| CS0 (0) |Anything else | 
 
 * You should classify the workloads and mark the right DSCP values. Follow the guidance provided [here](https://technet.microsoft.com/library/gg405409.aspx) on how to set DSCP markings in your network.
 * You should configure and support multiple QoS queues within your network. Voice must be a standalone class and receive the EF treatment specified in RFC 3246. 
